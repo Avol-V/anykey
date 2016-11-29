@@ -27,24 +27,6 @@ let authFile: string;
 let authData: UserData | null;
 
 /**
- * Authentication error.
- */
-class AuthError extends Error
-{
-	/**
-	 * Authentication error.
-	 * 
-	 * @param message Human-readable description of the error.
-	 */
-	public constructor( message: string )
-	{
-		super( message );
-		this.name = this.constructor.name;
-		this.message = message;
-	}
-}
-
-/**
  * Set path to file with authentication user data.
  * 
  * @param filePath Path to the file.
@@ -128,9 +110,9 @@ async function getQrCode(): Promise<string>
  * 
  * @param accountName Account name, e.g. user's email address.
  * @param token The OTP token to check.
- * @returns Resolve when match, reject either.
+ * @returns Match?
  */
-async function check( accountName: string, token: string ): Promise<void>
+async function check( accountName: string, token: string ): Promise<boolean>
 {
 	await updateAuthData();
 	
@@ -139,18 +121,10 @@ async function check( accountName: string, token: string ): Promise<void>
 		throw new Error( 'Can\'t get auth data.' );
 	}
 	
-	const match = (
+	return (
 		( accountName === authData.accountName )
 		&& authenticator.check( token, authData.secret )
 	);
-	
-	// TODO: Change to boolean result?
-	if ( !match )
-	{
-		throw new AuthError( 'The provided OTP token didn\'t match the system.' );
-	}
-	
-	return Promise.resolve();
 }
 
 /**
@@ -176,6 +150,5 @@ export {
 	generate,
 	getQrCode,
 	check,
-	AuthError,
 	UserData,
 };

@@ -20,8 +20,8 @@ const SESSION_LIFETIME = 2 * 60 * 1000;
  * @param response Response object.
  * @param next Next middleware function.
  */
-function main( request: Express.Request, response: Express.Response,
-	next: Express.NextFunction ): void
+async function main( request: Express.Request, response: Express.Response,
+	next: Express.NextFunction ): Promise<void>
 {
 	const session = request.session;
 	
@@ -45,27 +45,15 @@ function main( request: Express.Request, response: Express.Response,
 			return;
 		}
 		
-		Otp.check( credentials.name, credentials.pass )
-			.then(
-				() =>
-				{
-					session['lastAccess'] = Date.now();
-					next();
-				},
-			)
-			.catch(
-				( error: Error ) =>
-				{
-					if ( error instanceof Otp.AuthError )
-					{
-						authFail( response );
-					}
-					else
-					{
-						throw error;
-					}
-				},
-			);
+		if ( await Otp.check( credentials.name, credentials.pass ) )
+		{
+			session['lastAccess'] = Date.now();
+			next();
+		}
+		else
+		{
+			authFail( response );
+		}
 		
 		return;
 	}
