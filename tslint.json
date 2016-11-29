@@ -1,0 +1,145 @@
+{
+	"extends": "tslint:recommended",
+	"rules": {
+		"align": [
+			false
+		],
+		"ban": [
+			true,
+			["event"],
+			["window", "event"]
+		],
+		"indent": [
+			true,
+			"tabs"
+		],
+		"interface-name": [false],
+		"linebreak-style": [true, "LF"],
+		"max-file-line-count": [true, 1000],
+		"member-access": [
+			true,
+			"check-accessor",
+			"check-constructor"
+		],
+		"member-ordering": [
+			true,
+			{
+				"order": [
+					"public-static-field",
+					"protected-static-field",
+					"private-static-field",
+					"public-instance-field",
+					"protected-instance-field",
+					"private-instance-field",
+					"public-static-method",
+					"protected-static-method",
+					"private-static-method",
+					"constructor",
+					"public-instance-method",
+					"protected-instance-method",
+					"private-instance-method"
+				]
+			}
+		],
+		"no-angle-bracket-type-assertion": true,
+		"no-bitwise": false,
+		"no-conditional-assignment": false,
+		"no-console": [
+			true,
+			"debug",
+			"info",
+			"time",
+			"timeEnd",
+			"trace"
+		],
+		"no-parameter-properties": true,
+		"no-string-literal": false,
+		"no-trailing-whitespace": false,
+		"no-unused-expression": false,
+		"no-unused-new": false,
+		"one-line": [
+			false
+		],
+		"quotemark": [
+			true,
+			"single",
+			"jsx-double",
+			"avoid-escape"
+		],
+		"typedef": [
+			true,
+			"call-signature",
+			"parameter",
+			"arrow-parameter",
+			"property-declaration"
+		],
+		"variable-name": [
+			true,
+			"allow-leading-underscore",
+			"ban-keywords",
+			"check-format"
+		],
+		"whitespace": [
+			true,
+			"check-branch",
+			"check-decl",
+			"check-operator",
+			"check-module",
+			"check-separator",
+			"check-type"
+		]
+	},
+	"jsRules": {
+		"align": [
+			false
+		],
+		"ban": [
+			true,
+			["event"],
+			["window", "event"]
+		],
+		"indent": [
+			true,
+			"tabs"
+		],
+		"linebreak-style": [true, "LF"],
+		"no-bitwise": false,
+		"no-conditional-assignment": false,
+		"no-console": [
+			true,
+			"debug",
+			"info",
+			"time",
+			"timeEnd",
+			"trace"
+		],
+		"no-string-literal": false,
+		"no-trailing-whitespace": false,
+		"no-unused-expression": false,
+		"no-unused-new": false,
+		"one-line": [
+			false
+		],
+		"quotemark": [
+			true,
+			"single",
+			"jsx-double",
+			"avoid-escape"
+		],
+		"variable-name": [
+			true,
+			"allow-leading-underscore",
+			"ban-keywords",
+			"check-format"
+		],
+		"whitespace": [
+			true,
+			"check-branch",
+			"check-decl",
+			"check-operator",
+			"check-module",
+			"check-separator",
+			"check-type"
+		]
+	}
+}
