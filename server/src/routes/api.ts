@@ -6,7 +6,11 @@
 ;
 
 import * as Express from 'express';
+import logoutRoute from './api/logout';
 
+/**
+ * API Router.
+ */
 const router = Express.Router();
 
 router.get(
@@ -16,6 +20,7 @@ router.get(
 		response.end();
 	},
 );
+router.get( '/logout', logoutRoute );
 
 /**
  * Module
