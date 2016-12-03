@@ -50,7 +50,7 @@ app.get(
 				( error: Error ) =>
 					response.send( String( error ) )
 			);*/
-	}
+	},
 );
 
 app.listen( process.env.PORT || 8080 );

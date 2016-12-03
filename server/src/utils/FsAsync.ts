@@ -53,7 +53,7 @@ const writeFile:
 	(
 		filename: string,
 		data: string | Buffer,
-		options?: { encoding?: string; mode?: number | string; flag?: string; } | string
+		options?: { encoding?: string; mode?: number | string; flag?: string; } | string,
 	) => Promise<void>
 	= promisify<
 		void,

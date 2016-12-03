@@ -26,8 +26,8 @@
  * Default options of `promisify` function
  */
 const DEFAULT_OPTIONS: PromisifyOptions = {
-	thisArg: null,
 	multiArgs: false,
+	thisArg: null,
 };
 
 /**
@@ -39,7 +39,7 @@ const DEFAULT_OPTIONS: PromisifyOptions = {
  */
 function promisify<T>(
 	nodeFunction: (
-		callback: ( error: any, result: T ) => void
+		callback: ( error: any, result: T ) => void,
 	) => void,
 	options?: PromisifyOptions,
 ): () => Promise<T>;
@@ -53,7 +53,7 @@ function promisify<T>(
 function promisify<T, A1>(
 	nodeFunction: (
 		arg1: A1,
-		callback: ( error: any, result: T ) => void
+		callback: ( error: any, result: T ) => void,
 	) => void,
 	options?: PromisifyOptions,
 ): (arg1: A1) => Promise<T>;
@@ -68,7 +68,7 @@ function promisify<T, A1, A2>(
 	nodeFunction: (
 		arg1: A1,
 		arg2: A2,
-		callback: ( error: any, result: T ) => void
+		callback: ( error: any, result: T ) => void,
 	) => void,
 	options?: PromisifyOptions,
 ): (arg1: A1, arg2: A2) => Promise<T>;
@@ -84,7 +84,7 @@ function promisify<T, A1, A2, A3>(
 		arg1: A1,
 		arg2: A2,
 		arg3: A3,
-		callback: ( error: any, result: T ) => void
+		callback: ( error: any, result: T ) => void,
 	) => void,
 	options?: PromisifyOptions,
 ): (arg1: A1, arg2: A2, arg3: A3) => Promise<T>;
@@ -101,7 +101,7 @@ function promisify<T, A1, A2, A3, A4>(
 		arg2: A2,
 		arg3: A3,
 		arg4: A4,
-		callback: ( error: any, result: T ) => void
+		callback: ( error: any, result: T ) => void,
 	) => void,
 	options?: PromisifyOptions,
 ): (arg1: A1, arg2: A2, arg3: A3, arg4: A4) => Promise<T>;
@@ -119,7 +119,7 @@ function promisify<T, A1, A2, A3, A4, A5>(
 		arg3: A3,
 		arg4: A4,
 		arg5: A5,
-		callback: ( error: any, result: T ) => void
+		callback: ( error: any, result: T ) => void,
 	) => void,
 	options?: PromisifyOptions,
 ): (arg1: A1, arg2: A2, arg3: A3, arg4: A4, arg5: A5) => Promise<T>;
@@ -151,10 +151,10 @@ function promisify(
 							? resolve( results )
 							: resolve( results[0] )
 						)
-					)
+					),
 				);
 				nodeFunction.apply( allOptions.thisArg, args );
-			}
+			},
 		);
 	};
 }

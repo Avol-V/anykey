@@ -1,10 +1,10 @@
-/// <reference path="../types/otplib.d.ts" />
 /**
  * Module to work with OTP
  */
 ;
 
 import {authenticator} from 'otplib';
+import '../types/otplib';
 import * as FsAsync from './FsAsync';
 
 /**
@@ -103,7 +103,6 @@ async function getQrCode(): Promise<string>
 	
 	return Promise.resolve( uri );
 }
-
 
 /**
  * Checks the provided OTP token against system generated token.
