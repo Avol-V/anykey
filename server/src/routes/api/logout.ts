@@ -18,6 +18,7 @@ function main( request: Express.Request, response: Express.Response ): void
 	if ( !request.session )
 	{
 		response.end();
+		return;
 	}
 	
 	request.session.destroy(

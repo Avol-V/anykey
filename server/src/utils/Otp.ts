@@ -4,7 +4,6 @@
 ;
 
 import {authenticator} from 'otplib';
-import '../types/otplib';
 import * as FsAsync from './FsAsync';
 
 /**
