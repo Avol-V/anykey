@@ -17,6 +17,10 @@
 		"declaration": false,
 		"sourceMap": false,
 		"outDir": "../build",
+		"baseUrl": ".",
+		"paths": {
+			"common/*": ["../../common/*"]
+		},
 		"types": [
 			"node"
 		]

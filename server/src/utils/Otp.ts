@@ -37,6 +37,25 @@ function setAuthFile( filePath: string ): void
 }
 
 /**
+ * Check existence of auth data.
+ * 
+ * @returns Auth data exists and not empty?
+ */
+async function hasAuthData(): Promise<boolean>
+{
+	try
+	{
+		await updateAuthData();
+	}
+	catch ( _error )
+	{
+		return false;
+	}
+	
+	return Boolean( authData && authData.accountName && authData.secret );
+}
+
+/**
  * Generate new authentication data.
  * 
  * @param accountName Account name, e.g. user's email address.
@@ -66,8 +85,6 @@ async function generate( accountName: string ): Promise<void>
 
 /**
  * Read authentication data from file.
- * 
- * @returns
  */
 async function updateAuthData(): Promise<void>
 {
@@ -145,6 +162,7 @@ interface UserData
  */
 export {
 	setAuthFile,
+	hasAuthData,
 	generate,
 	getQrCode,
 	check,

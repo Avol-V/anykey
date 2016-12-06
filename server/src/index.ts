@@ -2,6 +2,7 @@ import * as Express from 'express';
 import * as Session from 'express-session';
 // import * as FsAsync from './utils/FsAsync';
 import * as Path from 'path';
+import accountMiddleware from './middleware/account';
 import authMiddleware from './middleware/auth';
 import apiRouter from './routes/api';
 import * as Otp from './utils/Otp';
@@ -32,6 +33,7 @@ const session: Session.SessionOptions = {
 
 app.use( Express.static( Path.resolve( rootPath, 'public' ) ) );
 app.use( Session( session ) );
+app.use( accountMiddleware );
 app.use( authMiddleware );
 app.use( '/api', apiRouter );
 
