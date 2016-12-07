@@ -17,6 +17,7 @@
 		"declaration": false,
 		"sourceMap": false,
 		"outDir": "../build",
+		"rootDir": ".",
 		"baseUrl": ".",
 		"paths": {
 			"common/*": ["../../common/*"]

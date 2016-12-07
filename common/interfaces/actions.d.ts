@@ -3,7 +3,6 @@
  * 
  * @module
  */
-;
 
 /**
  * Common action interface.
@@ -22,7 +21,7 @@ interface ActionError extends IAction
 	type: 'ERROR';
 	/** Error message */
 	error: string;
-};
+}
 
 /**
  * Action with new authentication data.
@@ -33,7 +32,7 @@ interface ActionNewAuth extends IAction
 	type: 'NEW_AUTH';
 	/** URI to QR Code image */
 	uri: string;
-};
+}
 
 /**
  * Action with new account.
@@ -44,7 +43,7 @@ interface ActionNewAccount extends IAction
 	type: 'NEW_ACCOUNT';
 	/** Account name */
 	name: string;
-};
+}
 
 /**
  * Action with request of new account name.
@@ -53,7 +52,7 @@ interface ActionAccountRequired extends IAction
 {
 	/** Action type */
 	type: 'ACCOUNT_REQUIRED';
-};
+}
 
 /**
  * Module
