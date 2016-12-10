@@ -1,12 +1,12 @@
 {
   "name": "anykey",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Password Manager with client-side encryption.",
   "main": "server/build/index.js",
   "scripts": {
     "test": "gulp test",
-    "start": "node server/build/index.js",
-    "build:server": "cd server/src && tsc"
+    "start": "node server/index.js",
+    "build:server": "cd server.src && ../node_modules/.bin/tsc"
   },
   "repository": {
     "type": "git",

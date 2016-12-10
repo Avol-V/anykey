@@ -5,8 +5,8 @@
 ;
 
 import * as basicAuth from 'basic-auth';
-import {ActionError, ActionNewAuth} from 'common/interfaces/actions';
 import * as Express from 'express';
+import {ActionError, ActionNewAuth} from 'shared/interfaces/actions';
 import * as Otp from '../utils/Otp';
 
 /**

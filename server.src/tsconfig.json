@@ -18,11 +18,11 @@
 		"declaration": false,
 		"sourceMap": false,
 		"importHelpers": true,
-		"outDir": "../build",
+		"outDir": "../server",
 		"rootDir": ".",
 		"baseUrl": ".",
 		"paths": {
-			"common/*": ["../../common/*"]
+			"shared/*": ["../shared/*"]
 		},
 		"types": [
 			"node"
