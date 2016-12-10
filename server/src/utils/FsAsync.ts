@@ -1,5 +1,8 @@
 /**
- * File I/O module with Promises
+ * File I/O module with Promises.
+ * 
+ * `promisify` function cannot work properly with overloads,
+ * so we need to specify types manually.
  * 
  * @module
  */
@@ -37,7 +40,7 @@ const readFile: {
 		 */
 		( filename: string, options: { encoding?: string; flag?: string; } ): Promise<string>;
 	}
-	= promisify<Buffer, string>( Fs.readFile );
+	= promisify( Fs.readFile ) as any;
 
 /**
  * Asynchronously writes data to a file, replacing the file if it already exists.
@@ -55,12 +58,7 @@ const writeFile:
 		data: string | Buffer,
 		options?: { encoding?: string; mode?: number | string; flag?: string; } | string,
 	) => Promise<void>
-	= promisify<
-		void,
-		string,
-		string | Buffer,
-		{ encoding?: string; mode?: number | string; flag?: string; } | string
-	>( Fs.writeFile as any );
+	= promisify( Fs.writeFile ) as any;
 
 /**
  * Module

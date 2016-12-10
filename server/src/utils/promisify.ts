@@ -41,7 +41,7 @@ function promisify<T>(
 	nodeFunction: (
 		callback: ( error: any, result: T ) => void,
 	) => void,
-	options?: PromisifyOptions,
+	options?: Partial<PromisifyOptions>,
 ): () => Promise<T>;
 /**
  * Transforms callback-based function into an Promise-based.
@@ -55,7 +55,7 @@ function promisify<T, A1>(
 		arg1: A1,
 		callback: ( error: any, result: T ) => void,
 	) => void,
-	options?: PromisifyOptions,
+	options?: Partial<PromisifyOptions>,
 ): (arg1: A1) => Promise<T>;
 /**
  * Transforms callback-based function into an Promise-based.
@@ -70,7 +70,7 @@ function promisify<T, A1, A2>(
 		arg2: A2,
 		callback: ( error: any, result: T ) => void,
 	) => void,
-	options?: PromisifyOptions,
+	options?: Partial<PromisifyOptions>,
 ): (arg1: A1, arg2: A2) => Promise<T>;
 /**
  * Transforms callback-based function into an Promise-based.
@@ -86,7 +86,7 @@ function promisify<T, A1, A2, A3>(
 		arg3: A3,
 		callback: ( error: any, result: T ) => void,
 	) => void,
-	options?: PromisifyOptions,
+	options?: Partial<PromisifyOptions>,
 ): (arg1: A1, arg2: A2, arg3: A3) => Promise<T>;
 /**
  * Transforms callback-based function into an Promise-based.
@@ -103,7 +103,7 @@ function promisify<T, A1, A2, A3, A4>(
 		arg4: A4,
 		callback: ( error: any, result: T ) => void,
 	) => void,
-	options?: PromisifyOptions,
+	options?: Partial<PromisifyOptions>,
 ): (arg1: A1, arg2: A2, arg3: A3, arg4: A4) => Promise<T>;
 /**
  * Transforms callback-based function into an Promise-based.
@@ -121,7 +121,7 @@ function promisify<T, A1, A2, A3, A4, A5>(
 		arg5: A5,
 		callback: ( error: any, result: T ) => void,
 	) => void,
-	options?: PromisifyOptions,
+	options?: Partial<PromisifyOptions>,
 ): (arg1: A1, arg2: A2, arg3: A3, arg4: A4, arg5: A5) => Promise<T>;
 /**
  * Transforms callback-based function into an Promise-based.
@@ -132,10 +132,10 @@ function promisify<T, A1, A2, A3, A4, A5>(
  */
 function promisify(
 	nodeFunction: Function,
-	options?: PromisifyOptions,
+	options?: Partial<PromisifyOptions>,
 ): Function
 {
-	const allOptions = Object.assign( {}, DEFAULT_OPTIONS, options );
+	const allOptions: PromisifyOptions = {...DEFAULT_OPTIONS, ...options};
 	
 	return ( ...args: any[] ) =>
 	{
@@ -167,11 +167,11 @@ interface PromisifyOptions
 	/**
 	 * A `this` context to use with function
 	 */
-	thisArg?: any;
+	thisArg: any;
 	/**
 	 * Should multiple arguments be returned as an array?
 	 */
-	multiArgs?: boolean;
+	multiArgs: boolean;
 }
 
 /**

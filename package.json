@@ -32,7 +32,8 @@
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "express-session": "^1.14.2",
-    "otplib": "^3.0.1"
+    "otplib": "^3.0.1",
+    "tslib": "^1.2.0"
   },
   "devDependencies": {
     "@types/basic-auth": "0.0.30",
@@ -41,6 +42,6 @@
     "@types/express-session": "0.0.32",
     "@types/node": "^6.0.46",
     "gulp": "^3.9.1",
-    "typescript": "^2.0.8"
+    "typescript": "^2.1.4"
   }
 }
