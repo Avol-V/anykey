@@ -7,7 +7,7 @@
 import * as basicAuth from 'basic-auth';
 import * as Express from 'express';
 import {ActionError, ActionNewAuth} from 'shared/interfaces/actions';
-import * as Otp from '../utils/Otp';
+import * as Otp from '../modules/Otp';
 
 /**
  * Account management middleware.

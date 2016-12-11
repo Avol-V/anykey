@@ -6,8 +6,8 @@
 
 import * as basicAuth from 'basic-auth';
 import * as Express from 'express';
+import * as Otp from '../modules/Otp';
 import {garbageCollector, SESSION_LIFETIME} from '../modules/Session';
-import * as Otp from '../utils/Otp';
 
 /**
  * Authentication middleware.

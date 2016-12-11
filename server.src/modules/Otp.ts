@@ -4,7 +4,7 @@
 ;
 
 import {authenticator} from 'otplib';
-import * as FsAsync from './FsAsync';
+import * as FsAsync from '../utils/FsAsync';
 
 /**
  * The name of the service to use as `issuer` in **otpauth**.

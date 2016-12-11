@@ -7,9 +7,9 @@ import * as Express from 'express';
 import * as Path from 'path';
 import accountMiddleware from './middleware/account';
 import authMiddleware from './middleware/auth';
+import * as Otp from './modules/Otp';
 import {middleware as sessionMiddleware} from './modules/Session';
 import apiRouter from './routes/api';
-import * as Otp from './utils/Otp';
 
 /**
  * Application root directory
