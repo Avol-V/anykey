@@ -1,5 +1,9 @@
+/**
+ * AnyKey – Password Manager with client-side encryption.
+ */
+;
+
 import * as Express from 'express';
-// import * as FsAsync from './utils/FsAsync';
 import * as Path from 'path';
 import accountMiddleware from './middleware/account';
 import authMiddleware from './middleware/auth';
@@ -7,10 +11,17 @@ import {middleware as sessionMiddleware} from './modules/Session';
 import apiRouter from './routes/api';
 import * as Otp from './utils/Otp';
 
+/**
+ * Application root directory
+ */
 const rootPath = Path.resolve( __dirname, '../' );
 process.chdir( rootPath );
 
+// Setting up working directories
+
 Otp.setAuthFile( Path.resolve( rootPath, 'data/auth.json' ) );
+
+// Initializing application
 
 const app = Express();
 
@@ -30,16 +41,6 @@ app.get(
 	( _request: Express.Request, response: Express.Response ) =>
 	{
 		response.send( 'Hello World!' );
-		/*Otp.generate( 'user' )
-			.then( Otp.getQrCode )
-			.then(
-				( uri: string ) =>
-					response.send( 'Hello World! <img src="' + uri + '" alt="" />' )
-			)
-			.catch(
-				( error: Error ) =>
-					response.send( String( error ) )
-			);*/
 	},
 );
 
