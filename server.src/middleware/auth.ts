@@ -6,12 +6,8 @@
 
 import * as basicAuth from 'basic-auth';
 import * as Express from 'express';
+import {garbageCollector, SESSION_LIFETIME} from '../modules/Session';
 import * as Otp from '../utils/Otp';
-
-/**
- * Maximum interval from last user action, mses.
- */
-const SESSION_LIFETIME = 2 * 60 * 1000;
 
 /**
  * Authentication middleware.
@@ -31,6 +27,8 @@ async function main( request: Express.Request, response: Express.Response,
 		next();
 		return;
 	}
+	
+	garbageCollector();
 	
 	if (
 		!session['lastAccess']

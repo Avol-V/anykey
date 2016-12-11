@@ -40,7 +40,7 @@ jspm_packages
 .vscode
 
 # Build files
-/server/build/
+/server/
 
 # App data files
 /data/

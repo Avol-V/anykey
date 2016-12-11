@@ -2,8 +2,8 @@
 const tslib_1 = require("tslib");
 ;
 const basicAuth = require("basic-auth");
+const Session_1 = require("../modules/Session");
 const Otp = require("../utils/Otp");
-const SESSION_LIFETIME = 2 * 60 * 1000;
 function main(request, response, next) {
     return tslib_1.__awaiter(this, void 0, void 0, function* () {
         const session = request.session;
@@ -12,8 +12,9 @@ function main(request, response, next) {
             next();
             return;
         }
+        Session_1.garbageCollector();
         if (!session['lastAccess']
-            || ((session['lastAccess'] + SESSION_LIFETIME) < Date.now())) {
+            || ((session['lastAccess'] + Session_1.SESSION_LIFETIME) < Date.now())) {
             const credentials = basicAuth(request);
             if (!credentials) {
                 authFail(response);
