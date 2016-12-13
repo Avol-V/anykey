@@ -8,24 +8,23 @@
 import * as BodyParser from 'body-parser';
 import * as Express from 'express';
 import logoutRoute from './api/logout';
+import * as TreeRoutes from './api/Tree';
 
 /**
  * API Router.
  */
 const router = Express.Router();
+// /**
+//  * Create application/json parser
+//  */
+// const jsonParser = BodyParser.json();
 /**
- * Create application/json parser
+ * Create raw body parser
  */
-const jsonParser = BodyParser.json();
+const rawParser = BodyParser.text( {type: 'text/plain'} );
 
-router.get(
-	'/tree',
-	jsonParser,
-	( _request: Express.Request, response: Express.Response ) =>
-	{
-		response.end();
-	},
-);
+router.get( '/tree', TreeRoutes.get );
+router.put( '/tree', rawParser, TreeRoutes.put );
 router.get( '/logout', logoutRoute );
 
 /**
