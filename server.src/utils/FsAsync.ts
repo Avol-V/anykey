@@ -77,10 +77,85 @@ const rename:
 	= promisify( Fs.rename );
 
 /**
+ * Asynchronous file open.
+ * 
+ * `flags` can be:
+ * - `'r'` - Open file for reading. An exception occurs if the file
+ *   does not exist.
+ * - `'r+'` - Open file for reading and writing. An exception occurs
+ *   if the file does not exist.
+ * - `'rs+'` - Open file for reading and writing in synchronous mode.
+ *   Instructs the operating system to bypass the local file system cache.
+ * - `'w'` - Open file for writing. The file is created
+ *   (if it does not exist) or truncated (if it exists).
+ * - `'wx'` - Like 'w' but fails if path exists.
+ * - `'w+'` - Open file for reading and writing. The file is created
+ *   (if it does not exist) or truncated (if it exists).
+ * - `'wx+'` - Like 'w+' but fails if path exists.
+ * - `'a'` - Open file for appending. The file is created if it
+ *   does not exist.
+ * - `'ax'` - Like 'a' but fails if path exists.
+ * - `'a+'` - Open file for reading and appending. The file is created
+ *   if it does not exist.
+ * - `'ax+'` - Like 'a+' but fails if path exists.
+ */
+const open:
+	/**
+	 * Asynchronous file open.
+	 * 
+	 * `flags` can be:
+	 * - `'r'` - Open file for reading. An exception occurs if the file
+	 *   does not exist.
+	 * - `'r+'` - Open file for reading and writing. An exception occurs
+	 *   if the file does not exist.
+	 * - `'rs+'` - Open file for reading and writing in synchronous mode.
+	 *   Instructs the operating system to bypass the local file system cache.
+	 * - `'w'` - Open file for writing. The file is created
+	 *   (if it does not exist) or truncated (if it exists).
+	 * - `'wx'` - Like 'w' but fails if path exists.
+	 * - `'w+'` - Open file for reading and writing. The file is created
+	 *   (if it does not exist) or truncated (if it exists).
+	 * - `'wx+'` - Like 'w+' but fails if path exists.
+	 * - `'a'` - Open file for appending. The file is created if it
+	 *   does not exist.
+	 * - `'ax'` - Like 'a' but fails if path exists.
+	 * - `'a+'` - Open file for reading and appending. The file is created
+	 *   if it does not exist.
+	 * - `'ax+'` - Like 'a+' but fails if path exists.
+	 * 
+	 * @param path File path.
+	 * @param flags Flags to use (r, r+, rs+, w, wx, w+, wx+, a, ax, a+, ax+).
+	 * @param mode Sets the file mode (permission and sticky bits), but only
+	 *  if the file was created. It defaults to `0666`, readable and writable.
+	 * @returns File descriptor.
+	 */
+	(
+		path: string | Buffer,
+		flags: string | number,
+		mode?: number,
+	) => Promise<number>
+	= promisify( Fs.open );
+
+
+/**
+ * Asynchronous file close.
+ */
+const close:
+	/**
+	 * Asynchronous file close.
+	 * 
+	 * @param fd File descriptor.
+	 */
+	( fd: number ) => Promise<void>
+	= promisify( Fs.close );
+
+/**
  * Module
  */
 export {
 	readFile,
 	writeFile,
 	rename,
+	open,
+	close,
 };
