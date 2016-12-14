@@ -61,9 +61,26 @@ const writeFile:
 	= promisify( Fs.writeFile ) as any;
 
 /**
+ * Asynchronous rename – change the name or location of a file.
+ */
+const rename:
+	/**
+	 * Asynchronous rename – change the name or location of a file.
+	 * 
+	 * @param oldPath Original file path.
+	 * @param newPath New file path.
+	 */
+	(
+		oldPath: string,
+		newPath: string
+	) => Promise<void>
+	= promisify( Fs.rename );
+
+/**
  * Module
  */
 export {
 	readFile,
 	writeFile,
+	rename,
 };
