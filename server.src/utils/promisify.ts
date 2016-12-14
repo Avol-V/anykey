@@ -50,6 +50,19 @@ function promisify<T>(
  * @param options Object with options
  * @returns A promisified version of `nodeFunction`
  */
+function promisify(
+	nodeFunction: (
+		callback: ( error: any ) => void,
+	) => void,
+	options?: Partial<PromisifyOptions>,
+): () => Promise<void>;
+/**
+ * Transforms callback-based function into an Promise-based.
+ * 
+ * @param nodeFunction The function to promisify
+ * @param options Object with options
+ * @returns A promisified version of `nodeFunction`
+ */
 function promisify<T, A1>(
 	nodeFunction: (
 		arg1: A1,
@@ -57,6 +70,20 @@ function promisify<T, A1>(
 	) => void,
 	options?: Partial<PromisifyOptions>,
 ): (arg1: A1) => Promise<T>;
+/**
+ * Transforms callback-based function into an Promise-based.
+ * 
+ * @param nodeFunction The function to promisify
+ * @param options Object with options
+ * @returns A promisified version of `nodeFunction`
+ */
+function promisify<A1>(
+	nodeFunction: (
+		arg1: A1,
+		callback: ( error: any ) => void,
+	) => void,
+	options?: Partial<PromisifyOptions>,
+): (arg1: A1) => Promise<void>;
 /**
  * Transforms callback-based function into an Promise-based.
  * 
@@ -79,6 +106,21 @@ function promisify<T, A1, A2>(
  * @param options Object with options
  * @returns A promisified version of `nodeFunction`
  */
+function promisify<A1, A2>(
+	nodeFunction: (
+		arg1: A1,
+		arg2: A2,
+		callback: ( error: any ) => void,
+	) => void,
+	options?: Partial<PromisifyOptions>,
+): (arg1: A1, arg2: A2) => Promise<void>;
+/**
+ * Transforms callback-based function into an Promise-based.
+ * 
+ * @param nodeFunction The function to promisify
+ * @param options Object with options
+ * @returns A promisified version of `nodeFunction`
+ */
 function promisify<T, A1, A2, A3>(
 	nodeFunction: (
 		arg1: A1,
@@ -88,6 +130,22 @@ function promisify<T, A1, A2, A3>(
 	) => void,
 	options?: Partial<PromisifyOptions>,
 ): (arg1: A1, arg2: A2, arg3: A3) => Promise<T>;
+/**
+ * Transforms callback-based function into an Promise-based.
+ * 
+ * @param nodeFunction The function to promisify
+ * @param options Object with options
+ * @returns A promisified version of `nodeFunction`
+ */
+function promisify<A1, A2, A3>(
+	nodeFunction: (
+		arg1: A1,
+		arg2: A2,
+		arg3: A3,
+		callback: ( error: any ) => void,
+	) => void,
+	options?: Partial<PromisifyOptions>,
+): (arg1: A1, arg2: A2, arg3: A3) => Promise<void>;
 /**
  * Transforms callback-based function into an Promise-based.
  * 
@@ -112,6 +170,23 @@ function promisify<T, A1, A2, A3, A4>(
  * @param options Object with options
  * @returns A promisified version of `nodeFunction`
  */
+function promisify<A1, A2, A3, A4>(
+	nodeFunction: (
+		arg1: A1,
+		arg2: A2,
+		arg3: A3,
+		arg4: A4,
+		callback: ( error: any ) => void,
+	) => void,
+	options?: Partial<PromisifyOptions>,
+): (arg1: A1, arg2: A2, arg3: A3, arg4: A4) => Promise<void>;
+/**
+ * Transforms callback-based function into an Promise-based.
+ * 
+ * @param nodeFunction The function to promisify
+ * @param options Object with options
+ * @returns A promisified version of `nodeFunction`
+ */
 function promisify<T, A1, A2, A3, A4, A5>(
 	nodeFunction: (
 		arg1: A1,
@@ -123,6 +198,24 @@ function promisify<T, A1, A2, A3, A4, A5>(
 	) => void,
 	options?: Partial<PromisifyOptions>,
 ): (arg1: A1, arg2: A2, arg3: A3, arg4: A4, arg5: A5) => Promise<T>;
+/**
+ * Transforms callback-based function into an Promise-based.
+ * 
+ * @param nodeFunction The function to promisify
+ * @param options Object with options
+ * @returns A promisified version of `nodeFunction`
+ */
+function promisify<A1, A2, A3, A4, A5>(
+	nodeFunction: (
+		arg1: A1,
+		arg2: A2,
+		arg3: A3,
+		arg4: A4,
+		arg5: A5,
+		callback: ( error: any ) => void,
+	) => void,
+	options?: Partial<PromisifyOptions>,
+): (arg1: A1, arg2: A2, arg3: A3, arg4: A4, arg5: A5) => Promise<void>;
 /**
  * Transforms callback-based function into an Promise-based.
  * 
