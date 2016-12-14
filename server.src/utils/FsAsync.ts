@@ -72,7 +72,7 @@ const rename:
 	 */
 	(
 		oldPath: string,
-		newPath: string
+		newPath: string,
 	) => Promise<void>
 	= promisify( Fs.rename );
 
