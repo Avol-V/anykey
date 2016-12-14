@@ -56,6 +56,15 @@ async function put( request: Express.Request,
 	
 	try
 	{
+		await FsAsync.rename( fileName, fileName + `.${Date.now()}` );
+	}
+	catch ( _error )
+	{
+		// It's OK
+	}
+	
+	try
+	{
 		await FsAsync.writeFile( fileName, request.body );
 	}
 	catch ( _error )
