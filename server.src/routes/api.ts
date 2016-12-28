@@ -8,6 +8,7 @@
 import * as BodyParser from 'body-parser';
 import * as Express from 'express';
 import logoutRoute from './api/logout';
+import * as RecordsRoutes from './api/Records';
 import * as TreeRoutes from './api/Tree';
 
 /**
@@ -25,6 +26,8 @@ const rawParser = BodyParser.text( {type: 'text/plain'} );
 
 router.get( '/tree', TreeRoutes.get );
 router.put( '/tree', rawParser, TreeRoutes.put );
+router.get( '/records/:name', RecordsRoutes.get );
+router.put( '/records', rawParser, RecordsRoutes.put );
 router.get( '/logout', logoutRoute );
 
 /**
