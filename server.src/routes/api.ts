@@ -20,14 +20,14 @@ const router = Express.Router();
 //  */
 // const jsonParser = BodyParser.json();
 /**
- * Create raw body parser
+ * Create text body parser
  */
-const rawParser = BodyParser.text( {type: 'text/plain'} );
+const textParser = BodyParser.text( {type: 'text/plain'} );
 
 router.get( '/tree', TreeRoutes.get );
-router.put( '/tree', rawParser, TreeRoutes.put );
+router.put( '/tree', textParser, TreeRoutes.put );
 router.get( '/records/:name', RecordsRoutes.get );
-router.put( '/records', rawParser, RecordsRoutes.put );
+router.put( '/records', textParser, RecordsRoutes.put );
 router.get( '/logout', logoutRoute );
 
 /**
