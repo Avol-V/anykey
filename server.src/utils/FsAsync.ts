@@ -150,6 +150,47 @@ const close:
 	= promisify( Fs.close );
 
 /**
+ * Write data to the file specified by File Descriptor.
+ */
+const write: {
+		/**
+		 * Write buffer to the file specified by File Descriptor.
+		 * 
+		 * @param fd File descriptor.
+		 * @param buffer Data to write.
+		 * @param offset Position in buffer to write from.
+		 * @param length Length of the data to write from the buffer.
+		 * @param position Refers to the offset from the beginning
+		 *  of the file where this data should be written.
+		 * @returns The number of bytes written.
+		 */
+		(
+			fd: number,
+			buffer: Buffer,
+			offset?: number,
+			length?: number,
+			position?: number
+		): Promise<number>;
+		/**
+		 * Write string to the file specified by File Descriptor.
+		 * 
+		 * @param fd File descriptor.
+		 * @param data Data to write.
+		 * @param position Refers to the offset from the beginning
+		 *  of the file where this data should be written.
+		 * @param encoding The expected string encoding.
+		 * @returns The number of bytes written.
+		 */
+		(
+			fd: number,
+			data: string,
+			position?: number,
+			encoding?: string
+		): Promise<number>;
+	}
+	= promisify( Fs.write );
+
+/**
  * Module
  */
 export {
@@ -158,4 +199,5 @@ export {
 	rename,
 	open,
 	close,
+	write,
 };
