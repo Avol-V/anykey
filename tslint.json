@@ -57,6 +57,7 @@
 		"no-trailing-whitespace": false,
 		"no-unused-expression": false,
 		"no-unused-new": false,
+		"object-literal-sort-keys": false,
 		"one-line": [
 			false
 		],
@@ -117,6 +118,7 @@
 		"no-trailing-whitespace": false,
 		"no-unused-expression": false,
 		"no-unused-new": false,
+		"object-literal-sort-keys": false,
 		"one-line": [
 			false
 		],
