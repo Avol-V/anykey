@@ -1,12 +1,14 @@
 import {h, render} from 'preact';
+import TreeData from './interfaces/TreeData';
+import Home from './scenes/Home/index';
 
-const TREE_DATA = [
+const TREE_DATA: TreeData = [
 	{
 		name: 'Services',
 		icon: '#folder',
 		entries: [
 			{
-				key: 1482949340975,
+				id: 1482949340975,
 				expiration: 1483686907461,
 				history: [
 					1482949340970,
@@ -15,10 +17,10 @@ const TREE_DATA = [
 				description: 'Big brother',
 				url: 'https://google.com/',
 				icon: 'https://www.google.com/images/branding/product/ico/googleg_lodp.ico',
-				data: {
+				protected: {
 					login: 'example@google.com',
 					password: 'Secret password',
-					comments: 'Secret code: 42\nTel: 1234567890',
+					comment: 'Secret code: 42\nTel: 1234567890',
 					attachments: [
 						{
 							name: 'secret.txt',
@@ -32,9 +34,9 @@ const TREE_DATA = [
 				},
 			},
 			{
-				key: 1482949464927,
+				id: 1482949464927,
 				name: 'Yandex',
-			}
+			},
 		],
 	},
 	{
@@ -42,3 +44,5 @@ const TREE_DATA = [
 		entries: [],
 	},
 ];
+
+render( <Home tree={TREE_DATA} />, document.body );

@@ -41,6 +41,8 @@ jspm_packages
 
 # Build files
 /server/
+/client.es/
+/public/scripts/
 
 # App data files
 /data/
