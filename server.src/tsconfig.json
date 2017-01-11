@@ -16,7 +16,7 @@
 		"forceConsistentCasingInFileNames": true,
 		"removeComments": true,
 		"declaration": false,
-		"sourceMap": false,
+		"sourceMap": true,
 		"importHelpers": true,
 		"outDir": "../server",
 		"rootDir": ".",
