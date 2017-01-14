@@ -12,6 +12,7 @@ function Info( {id, url, history, expiration, description}: InfoProps ): JSX.Ele
 		? history[0]
 		: id
 	);
+	const empty = (id < 0);
 	
 	return (
 		<dl class="info">
@@ -23,14 +24,24 @@ function Info( {id, url, history, expiration, description}: InfoProps ): JSX.Ele
 				}
 			</Item>
 			<Item className="creation" name="Creation">
-				{printDate( new Date( created ), true )}
+				{
+					empty
+					? ''
+					: printDate( new Date( created ), true )
+				}
 			</Item>
 			<Item className="modification" name="Modification">
-				{printDate( new Date( id ), true )}
+				{
+					empty
+					? ''
+					: printDate( new Date( id ), true )
+				}
 			</Item>
 			<Item className="expiration" name="Expiration">
 				{
-					expiration
+					empty
+					? ''
+					: expiration
 					? printDate( new Date( expiration ), true )
 					: 'Never'
 				}

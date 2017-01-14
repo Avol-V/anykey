@@ -5,9 +5,11 @@ import Row from './Row';
 interface TableProps extends ComponentProps
 {
 	entries: TreeDataEntry[];
+	entryIndex: number;
+	onEntryClick: ( event: MouseEvent ) => void;
 }
 
-function Table( {entries}: TableProps ): JSX.Element
+function Table( {entries, entryIndex, onEntryClick}: TableProps ): JSX.Element
 {
 	return (
 		<table>
@@ -22,8 +24,14 @@ function Table( {entries}: TableProps ): JSX.Element
 			<tbody>
 				{
 					entries.map(
-						( item: TreeDataEntry ) => (
-							<Row key={String( item.id )} {...item} />
+						( item: TreeDataEntry, index: number ) => (
+							<Row
+								key={String( item.id )}
+								index={index}
+								checked={entryIndex === index}
+								onEntryClick={onEntryClick}
+								{...item}
+							/>
 						),
 					)
 				}

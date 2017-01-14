@@ -1,4 +1,4 @@
-import {ComponentProps, h} from 'preact';
+import {Component, ComponentProps, h} from 'preact';
 import {TreeDataEntry} from '../../../interfaces/TreeData';
 import Details from './Details/index';
 import Table from './Table/index';
@@ -6,17 +6,46 @@ import Table from './Table/index';
 interface EntriesProps extends ComponentProps
 {
 	entries: TreeDataEntry[];
+	entryIndex: number;
+	onEntryClick: ( event: MouseEvent ) => void;
 }
 
-function Entries( {entries}: EntriesProps ): JSX.Element
+class Entries extends Component<EntriesProps, void>
 {
-	return (
-		<section class="entries">
-			<h2>Password entries</h2>
-			<Table entries={entries} />
-			<Details {...entries[0]} />
-		</section>
-	);
+	private static readonly emptyEntry: TreeDataEntry = {
+		id: -1,
+		name: '',
+	};
+	
+	public constructor( props: EntriesProps )
+	{
+		super( props );
+	}
+	
+	public render(
+		{entries, entryIndex, onEntryClick}: EntriesProps,
+	): JSX.Element
+	{
+		const entry = entries[entryIndex];
+		
+		return (
+			<section class="entries">
+				<h2>Password entries</h2>
+				<Table
+					entries={entries}
+					entryIndex={entryIndex}
+					onEntryClick={onEntryClick}
+				/>
+				<Details {
+					...(
+						entry
+						? entry
+						: Entries.emptyEntry
+					)
+				} />
+			</section>
+		);
+	}
 }
 
 export {

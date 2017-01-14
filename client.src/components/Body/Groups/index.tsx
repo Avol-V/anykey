@@ -5,9 +5,11 @@ import Item from './Item';
 interface GroupsProps extends ComponentProps
 {
 	tree: TreeData;
+	groupIndex: number;
+	onGroupClick: ( event: MouseEvent ) => void;
 }
 
-function Groups( {tree}: GroupsProps ): JSX.Element
+function Groups( {tree, groupIndex, onGroupClick}: GroupsProps ): JSX.Element
 {
 	return (
 		<aside class="groups">
@@ -15,8 +17,14 @@ function Groups( {tree}: GroupsProps ): JSX.Element
 			<ul>
 				{
 					tree.map(
-						( item: TreeDataItem ) => (
-							<Item key={item.name} {...item} />
+						( item: TreeDataItem, index: number ) => (
+							<Item
+								key={item.name}
+								index={index}
+								checked={groupIndex === index}
+								onGroupClick={onGroupClick}
+								{...item}
+							/>
 						),
 					)
 				}

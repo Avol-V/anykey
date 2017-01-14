@@ -1,4 +1,5 @@
 import {h, render} from 'preact';
+import 'preact/devtools/index';
 import TreeData from './interfaces/TreeData';
 import Home from './scenes/Home/index';
 

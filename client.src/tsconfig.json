@@ -17,7 +17,7 @@
 		"forceConsistentCasingInFileNames": true,
 		"removeComments": true,
 		"declaration": false,
-		"sourceMap": false,
+		"sourceMap": true,
 		"importHelpers": true,
 		"jsx": "react",
 		"jsxFactory": "h",
