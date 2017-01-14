@@ -1,14 +1,27 @@
+/**
+ * Table of entries row.
+ */
+;
+
 import {Component, ComponentProps, h} from 'preact';
 import {TreeDataEntry} from '../../../../interfaces/TreeData';
 import printDate from '../../../../utils/printDate';
 import printUrl from '../../../../utils/printUrl';
 
+/**
+ * Properties of Table of entries row.
+ */
 interface RowProps extends TreeDataEntry, ComponentProps
 {
+	/** Index of row */
 	index: number;
+	/** Is row selected? */
 	checked: boolean;
 }
 
+/**
+ * Table of entries row.
+ */
 class Row extends Component<RowProps, void>
 {
 	public render(
@@ -59,6 +72,9 @@ class Row extends Component<RowProps, void>
 	}
 }
 
+/**
+ * Module
+ */
 export {
 	Row as default,
 	RowProps,

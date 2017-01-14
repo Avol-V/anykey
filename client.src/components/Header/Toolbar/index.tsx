@@ -1,6 +1,14 @@
+/**
+ * Header toolbar.
+ */
+;
+
 import {h} from 'preact';
 import Item from './Item';
 
+/**
+ * Header toolbar.
+ */
 function Toolbar(): JSX.Element
 {
 	return (
@@ -13,6 +21,9 @@ function Toolbar(): JSX.Element
 	);
 }
 
+/**
+ * Module
+ */
 export {
 	Toolbar as default,
 };

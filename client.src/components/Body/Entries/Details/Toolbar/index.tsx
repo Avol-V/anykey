@@ -1,6 +1,14 @@
+/**
+ * Entry details toolbar.
+ */
+;
+
 import {h} from 'preact';
 import Item from './Item';
 
+/**
+ * Entry details toolbar.
+ */
 function Toolbar(): JSX.Element
 {
 	return (
@@ -11,6 +19,9 @@ function Toolbar(): JSX.Element
 	);
 }
 
+/**
+ * Module
+ */
 export {
 	Toolbar as default,
 };

@@ -1,13 +1,24 @@
+/**
+ * Groups list item.
+ */
+;
+
 import {Component, ComponentProps, h} from 'preact';
 import {TreeDataItem} from '../../../interfaces/TreeData';
 import toHtmlId from '../../../utils/toHtmlId';
 
+/**
+ * Properties of Groups list item.
+ */
 interface ItemProps extends TreeDataItem, ComponentProps
 {
 	index: number;
 	checked: boolean;
 }
 
+/**
+ * Groups list item.
+ */
 class Item extends Component<ItemProps, void>
 {
 	public render(
@@ -34,6 +45,9 @@ class Item extends Component<ItemProps, void>
 	}
 }
 
+/**
+ * Module
+ */
 export {
 	Item as default,
 	ItemProps,

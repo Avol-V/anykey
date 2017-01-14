@@ -1,14 +1,28 @@
+/**
+ * Table of entries.
+ */
+;
+
 import {ComponentProps, h} from 'preact';
 import {TreeDataEntry} from '../../../../interfaces/TreeData';
 import Row from './Row';
 
+/**
+ * Properties of Table of entries.
+ */
 interface TableProps extends ComponentProps
 {
+	/** Password entries in this group */
 	entries: TreeDataEntry[];
+	/** Index of current password entry */
 	entryIndex: number;
+	/** Handler of Entry changing */
 	onEntryChange: ( event: Event ) => void;
 }
 
+/**
+ * Table of entries.
+ */
 function Table( {entries, entryIndex, onEntryChange}: TableProps ): JSX.Element
 {
 	return (
@@ -39,6 +53,9 @@ function Table( {entries, entryIndex, onEntryChange}: TableProps ): JSX.Element
 	);
 }
 
+/**
+ * Module
+ */
 export {
 	Table as default,
 	TableProps,

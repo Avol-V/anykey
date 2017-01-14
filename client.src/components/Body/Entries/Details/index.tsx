@@ -1,10 +1,21 @@
+/**
+ * Details of current entry.
+ */
+;
+
 import {ComponentProps, h} from 'preact';
 import {TreeDataEntry} from '../../../../interfaces/TreeData';
 import Info from './Info/index';
 import Toolbar from './Toolbar/index';
 
+/**
+ * Properties of Details section.
+ */
 type DetailsProps = TreeDataEntry & ComponentProps;
 
+/**
+ * Details of current entry.
+ */
 function Details( entry: DetailsProps ): JSX.Element
 {
 	return (
@@ -16,6 +27,9 @@ function Details( entry: DetailsProps ): JSX.Element
 	);
 }
 
+/**
+ * Module
+ */
 export {
 	Details as default,
 	DetailsProps,

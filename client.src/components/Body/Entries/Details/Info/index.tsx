@@ -1,10 +1,21 @@
+/**
+ * Entry details list.
+ */
+;
+
 import {ComponentProps, h} from 'preact';
 import {TreeDataEntry} from '../../../../../interfaces/TreeData';
 import printDate from '../../../../../utils/printDate';
 import Item from './Item';
 
+/**
+ * Properties of Entry details list.
+ */
 type InfoProps = TreeDataEntry & ComponentProps;
 
+/**
+ * Entry details list.
+ */
 function Info( {id, url, history, expiration, description}: InfoProps ): JSX.Element
 {
 	const created = (
@@ -53,6 +64,9 @@ function Info( {id, url, history, expiration, description}: InfoProps ): JSX.Ele
 	);
 }
 
+/**
+ * Module
+ */
 export {
 	Info as default,
 	InfoProps,

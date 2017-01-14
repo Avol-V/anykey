@@ -1,8 +1,18 @@
+/**
+ * AnyKey – Password Manager with client-side encryption.
+ * 
+ * UI entry point.
+ */
+;
+
 import {h, render} from 'preact';
 import 'preact/devtools/index';
 import TreeData from './interfaces/TreeData';
 import Home from './scenes/Home/index';
 
+/**
+ * Mock data tree.
+ */
 const TREE_DATA: TreeData = [
 	{
 		name: 'Services',

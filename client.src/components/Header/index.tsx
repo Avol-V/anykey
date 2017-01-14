@@ -1,6 +1,14 @@
+/**
+ * Application header.
+ */
+;
+
 import {h} from 'preact';
 import Toolbar from './Toolbar/index';
 
+/**
+ * Application header.
+ */
 function Header(): JSX.Element
 {
 	return (
@@ -11,6 +19,9 @@ function Header(): JSX.Element
 	);
 }
 
+/**
+ * Module
+ */
 export {
 	Header as default,
 };

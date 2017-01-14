@@ -1,10 +1,22 @@
+/**
+ * Item on Entry details toolbar.
+ */
+;
+
 import {ComponentProps, h} from 'preact';
 
+/**
+ * Properties of Item on Entry details toolbar.
+ */
 interface ItemProps extends ComponentProps
 {
+	/** HTML class name */
 	className: string;
 }
 
+/**
+ * Item on Entry details toolbar.
+ */
 function Item( {className, children}: ItemProps ): JSX.Element
 {
 	return (
@@ -14,6 +26,9 @@ function Item( {className, children}: ItemProps ): JSX.Element
 	);
 }
 
+/**
+ * Module
+ */
 export {
 	Item as default,
 	ItemProps,

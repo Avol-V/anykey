@@ -1,21 +1,41 @@
+/**
+ * Application body for home screen.
+ */
+;
+
 import {Component, ComponentProps, h} from 'preact';
 import TreeData from '../../interfaces/TreeData';
 import Entries from './Entries/index';
 import Groups from './Groups/index';
 
+/**
+ * Properties of Application body.
+ */
 interface BodyProps extends ComponentProps
 {
+	/** Passwords tree data */
 	tree: TreeData;
 }
 
+/**
+ * State of Application body.
+ */
 interface BodyState
 {
+	/** Index of current group */
 	groupIndex: number;
+	/** Index of current password entry */
 	entryIndex: number;
 }
 
+/**
+ * Application body for home screen.
+ */
 class Body extends Component<BodyProps, BodyState>
 {
+	/**
+	 * Application body for home screen.
+	 */
 	public constructor( props: BodyProps )
 	{
 		super( props );
@@ -26,6 +46,9 @@ class Body extends Component<BodyProps, BodyState>
 		};
 	}
 	
+	/**
+	 * Render component
+	 */
 	public render( {tree}: BodyProps, {groupIndex, entryIndex}: BodyState ): JSX.Element
 	{
 		const group = tree[groupIndex];
@@ -50,6 +73,9 @@ class Body extends Component<BodyProps, BodyState>
 		);
 	}
 	
+	/**
+	 * Handler of Group changing.
+	 */
 	private onGroupChange = ( event: Event ): void =>
 	{
 		const target = event.target as HTMLInputElement;
@@ -67,6 +93,9 @@ class Body extends Component<BodyProps, BodyState>
 		);
 	}
 	
+	/**
+	 * Handler of Entry changing.
+	 */
 	private onEntryChange = ( event: Event ): void =>
 	{
 		const target = event.target as HTMLInputElement;

@@ -1,14 +1,28 @@
+/**
+ * Groups list section.
+ */
+;
+
 import {ComponentProps, h} from 'preact';
 import TreeData, {TreeDataItem} from '../../../interfaces/TreeData';
 import Item from './Item';
 
+/**
+ * Properties of Groups list section.
+ */
 interface GroupsProps extends ComponentProps
 {
+	/** Passwords tree data */
 	tree: TreeData;
+	/** Index of current group */
 	groupIndex: number;
+	/** Handler of Group changing */
 	onGroupChange: ( event: Event ) => void;
 }
 
+/**
+ * Groups list section.
+ */
 function Groups( {tree, groupIndex, onGroupChange}: GroupsProps ): JSX.Element
 {
 	return (
@@ -32,6 +46,9 @@ function Groups( {tree, groupIndex, onGroupChange}: GroupsProps ): JSX.Element
 	);
 }
 
+/**
+ * Module
+ */
 export {
 	Groups as default,
 	GroupsProps,
