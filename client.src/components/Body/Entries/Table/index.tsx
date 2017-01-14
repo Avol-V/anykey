@@ -6,10 +6,10 @@ interface TableProps extends ComponentProps
 {
 	entries: TreeDataEntry[];
 	entryIndex: number;
-	onEntryClick: ( event: MouseEvent ) => void;
+	onEntryChange: ( event: Event ) => void;
 }
 
-function Table( {entries, entryIndex, onEntryClick}: TableProps ): JSX.Element
+function Table( {entries, entryIndex, onEntryChange}: TableProps ): JSX.Element
 {
 	return (
 		<table>
@@ -21,7 +21,7 @@ function Table( {entries, entryIndex, onEntryClick}: TableProps ): JSX.Element
 					<th class="modified">Modified</th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody onChange={onEntryChange}>
 				{
 					entries.map(
 						( item: TreeDataEntry, index: number ) => (
@@ -29,7 +29,6 @@ function Table( {entries, entryIndex, onEntryClick}: TableProps ): JSX.Element
 								key={String( item.id )}
 								index={index}
 								checked={entryIndex === index}
-								onEntryClick={onEntryClick}
 								{...item}
 							/>
 						),

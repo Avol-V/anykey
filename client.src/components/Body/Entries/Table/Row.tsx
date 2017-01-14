@@ -7,13 +7,12 @@ interface RowProps extends TreeDataEntry, ComponentProps
 {
 	index: number;
 	checked: boolean;
-	onEntryClick: ( event: MouseEvent ) => void;
 }
 
 class Row extends Component<RowProps, void>
 {
 	public render(
-		{id, name, icon, url, history, index, checked, onEntryClick}: RowProps,
+		{id, name, icon, url, history, index, checked}: RowProps,
 	): JSX.Element
 	{
 		const inputId = 'entries-radio-' + id;
@@ -33,7 +32,6 @@ class Row extends Component<RowProps, void>
 						id={inputId}
 						value={String( index )}
 						checked={checked}
-						onClick={onEntryClick}
 					/>
 					<label for={inputId}>
 						{name}

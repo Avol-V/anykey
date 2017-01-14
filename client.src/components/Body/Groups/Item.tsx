@@ -6,13 +6,12 @@ interface ItemProps extends TreeDataItem, ComponentProps
 {
 	index: number;
 	checked: boolean;
-	onGroupClick: ( event: MouseEvent ) => void;
 }
 
 class Item extends Component<ItemProps, void>
 {
 	public render(
-		{name, icon, index, checked, onGroupClick}: ItemProps
+		{name, icon, index, checked}: ItemProps,
 	): JSX.Element
 	{
 		const inputId = 'groups-radio-' + toHtmlId( name );
@@ -23,7 +22,6 @@ class Item extends Component<ItemProps, void>
 					id={inputId}
 					value={String( index )}
 					checked={checked}
-					onClick={onGroupClick}
 				/>
 				<label for={inputId}>
 					<span class="icon">

@@ -35,11 +35,11 @@ class Body extends Component<BodyProps, BodyState>
 				<Groups
 					tree={tree}
 					groupIndex={groupIndex}
-					onGroupClick={this.onGroupClick}
+					onGroupChange={this.onGroupChange}
 				/>
 				<Entries
 					entryIndex={entryIndex}
-					onEntryClick={this.onEntryClick}
+					onEntryChange={this.onEntryChange}
 					entries={
 						group
 						? group.entries
@@ -50,8 +50,15 @@ class Body extends Component<BodyProps, BodyState>
 		);
 	}
 	
-	private onGroupClick = ( event: MouseEvent ): void =>
+	private onGroupChange = ( event: Event ): void =>
 	{
+		const target = event.target as HTMLInputElement;
+		
+		if ( target.name !== 'group' )
+		{
+			return;
+		}
+		
 		this.setState(
 			{
 				groupIndex: Number( (event.target as HTMLInputElement).value ),
@@ -60,11 +67,18 @@ class Body extends Component<BodyProps, BodyState>
 		);
 	}
 	
-	private onEntryClick = ( event: MouseEvent ): void =>
+	private onEntryChange = ( event: Event ): void =>
 	{
+		const target = event.target as HTMLInputElement;
+		
+		if ( target.name !== 'entry' )
+		{
+			return;
+		}
+		
 		this.setState(
 			{
-				entryIndex: Number( (event.target as HTMLInputElement).value ),
+				entryIndex: Number( target.value ),
 			} as BodyState,
 		);
 	}

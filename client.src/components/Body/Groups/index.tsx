@@ -6,15 +6,15 @@ interface GroupsProps extends ComponentProps
 {
 	tree: TreeData;
 	groupIndex: number;
-	onGroupClick: ( event: MouseEvent ) => void;
+	onGroupChange: ( event: Event ) => void;
 }
 
-function Groups( {tree, groupIndex, onGroupClick}: GroupsProps ): JSX.Element
+function Groups( {tree, groupIndex, onGroupChange}: GroupsProps ): JSX.Element
 {
 	return (
 		<aside class="groups">
 			<h2>Groups</h2>
-			<ul>
+			<ul onChange={onGroupChange}>
 				{
 					tree.map(
 						( item: TreeDataItem, index: number ) => (
@@ -22,7 +22,6 @@ function Groups( {tree, groupIndex, onGroupClick}: GroupsProps ): JSX.Element
 								key={item.name}
 								index={index}
 								checked={groupIndex === index}
-								onGroupClick={onGroupClick}
 								{...item}
 							/>
 						),

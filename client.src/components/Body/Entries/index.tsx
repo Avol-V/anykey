@@ -7,7 +7,7 @@ interface EntriesProps extends ComponentProps
 {
 	entries: TreeDataEntry[];
 	entryIndex: number;
-	onEntryClick: ( event: MouseEvent ) => void;
+	onEntryChange: ( event: Event ) => void;
 }
 
 class Entries extends Component<EntriesProps, void>
@@ -23,7 +23,7 @@ class Entries extends Component<EntriesProps, void>
 	}
 	
 	public render(
-		{entries, entryIndex, onEntryClick}: EntriesProps,
+		{entries, entryIndex, onEntryChange}: EntriesProps,
 	): JSX.Element
 	{
 		const entry = entries[entryIndex];
@@ -34,7 +34,7 @@ class Entries extends Component<EntriesProps, void>
 				<Table
 					entries={entries}
 					entryIndex={entryIndex}
-					onEntryClick={onEntryClick}
+					onEntryChange={onEntryChange}
 				/>
 				<Details {
 					...(
